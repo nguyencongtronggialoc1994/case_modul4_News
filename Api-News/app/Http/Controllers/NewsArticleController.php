@@ -2,84 +2,60 @@
 
 namespace App\Http\Controllers;
 
+use App\Http\Services\NewsArticleService;
 use App\Models\NewsArticle;
 use Illuminate\Http\Request;
 
 class NewsArticleController extends Controller
 {
-    /**
-     * Display a listing of the resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
-    public function index()
+    protected $newsArticleService;
+    public function __construct(NewsArticleService $newsArticleService)
     {
-        //
+        $this->newsArticleService=$newsArticleService;
     }
 
-    /**
-     * Show the form for creating a new resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
+    public function index()
+    {
+        $newsArticles = $this->newsArticleService->getAll();
+        return response()->json($newsArticles,200);
+    }
+
+
     public function create()
     {
         //
     }
 
-    /**
-     * Store a newly created resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @return \Illuminate\Http\Response
-     */
+
     public function store(Request $request)
     {
-        //
+        $dataNewsArticle = $this->newsArticleService->create($request->all());
+        return response()->json($dataNewsArticle['newsArticle'],$dataNewsArticle['statusCode']);
     }
 
-    /**
-     * Display the specified resource.
-     *
-     * @param  \App\Models\NewsArticle  $newsArticle
-     * @return \Illuminate\Http\Response
-     */
-    public function show(NewsArticle $newsArticle)
+    public function show($id)
     {
-        //
+        $dataNewsArticle = $this->newsArticleService->findById($id);
+        return response()->json($dataNewsArticle['newsArticle'],$dataNewsArticle['statusCode']);
     }
 
-    /**
-     * Show the form for editing the specified resource.
-     *
-     * @param  \App\Models\NewsArticle  $newsArticle
-     * @return \Illuminate\Http\Response
-     */
+
     public function edit(NewsArticle $newsArticle)
     {
         //
     }
 
-    /**
-     * Update the specified resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @param  \App\Models\NewsArticle  $newsArticle
-     * @return \Illuminate\Http\Response
-     */
-    public function update(Request $request, NewsArticle $newsArticle)
+
+    public function update(Request $request, $id)
     {
-        //
+        $dataNewsArticle = $this->newsArticleService->update($request->all(),$id);
+        return response()->json($dataNewsArticle['newsArticle'],$dataNewsArticle['statusCode']);
     }
 
-    /**
-     * Remove the specified resource from storage.
-     *
-     * @param  \App\Models\NewsArticle  $newsArticle
-     * @return \Illuminate\Http\Response
-     */
-    public function destroy(NewsArticle $newsArticle)
+
+    public function destroy($id)
     {
-        //
+        $dataNewsArticle = $this->newsArticleService->destroy($id);
+        return response()->json($dataNewsArticle['message'],$dataNewsArticle['statusCode']);
     }
 }

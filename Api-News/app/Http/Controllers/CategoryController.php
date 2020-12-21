@@ -2,84 +2,61 @@
 
 namespace App\Http\Controllers;
 
+use App\Http\Services\CategoryService;
 use App\Models\Category;
 use Illuminate\Http\Request;
 
 class CategoryController extends Controller
 {
-    /**
-     * Display a listing of the resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
-    public function index()
+    protected $categoryService;
+    public function __construct(CategoryService $categoryService)
     {
-        //
+        $this->categoryService=$categoryService;
     }
 
-    /**
-     * Show the form for creating a new resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
+    public function index()
+    {
+        $categories = $this->categoryService->getAll();
+        return response()->json($categories,200);
+    }
+
+
     public function create()
     {
         //
     }
 
-    /**
-     * Store a newly created resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @return \Illuminate\Http\Response
-     */
+
     public function store(Request $request)
     {
-        //
+        $dataCategory = $this->categoryService->create($request->all());
+        return response()->json($dataCategory['categories'],$dataCategory['statusCode']);
     }
 
-    /**
-     * Display the specified resource.
-     *
-     * @param  \App\Models\Category  $category
-     * @return \Illuminate\Http\Response
-     */
-    public function show(Category $category)
+
+    public function show($id)
     {
-        //
+        $dataCategory = $this->categoryService->findById($id);
+        return response()->json($dataCategory['categories'],$dataCategory['statusCode']);
     }
 
-    /**
-     * Show the form for editing the specified resource.
-     *
-     * @param  \App\Models\Category  $category
-     * @return \Illuminate\Http\Response
-     */
+
     public function edit(Category $category)
     {
         //
     }
 
-    /**
-     * Update the specified resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @param  \App\Models\Category  $category
-     * @return \Illuminate\Http\Response
-     */
-    public function update(Request $request, Category $category)
+
+    public function update(Request $request,$id)
     {
-        //
+        $dataCategory = $this->categoryService->update($request->all(),$id);
+        return response()->json($dataCategory['categories'],$dataCategory['statusCode']);
     }
 
-    /**
-     * Remove the specified resource from storage.
-     *
-     * @param  \App\Models\Category  $category
-     * @return \Illuminate\Http\Response
-     */
-    public function destroy(Category $category)
+
+    public function destroy($id)
     {
-        //
+        $dataCategory = $this->categoryService->destroy($id);
+        return response()->json($dataCategory['message'],$dataCategory['statusCode']);
     }
 }
