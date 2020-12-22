@@ -8,15 +8,15 @@ use Illuminate\Http\Request;
 
 class CategoryController extends Controller
 {
-    protected $categoryService;
-    public function __construct(CategoryService $categoryService)
-    {
-        $this->categoryService=$categoryService;
-    }
+//    protected $categoryService;
+//    public function __construct(CategoryService $categoryService)
+//    {
+//        $this->categoryService=$categoryService;
+//    }
 
-    public function index()
+    public function index(): \Illuminate\Http\JsonResponse
     {
-        $categories = $this->categoryService->getAll();
+        $categories = Category::all();
         return response()->json($categories,200);
     }
 
@@ -29,15 +29,23 @@ class CategoryController extends Controller
 
     public function store(Request $request)
     {
-        $dataCategory = $this->categoryService->create($request->all());
-        return response()->json($dataCategory['categories'],$dataCategory['statusCode']);
+       $category = new Category();
+       $category->fill($request->all());
+       $category->save();
+       $statusCode = 201;
+       if (!$category)
+           $statusCode=404;
+        return response()->json($category,$statusCode);
     }
 
 
     public function show($id)
     {
-        $dataCategory = $this->categoryService->findById($id);
-        return response()->json($dataCategory['categories'],$dataCategory['statusCode']);
+        $category = Category::findOrFail($id);
+        $statusCode = 200;
+        if (!$category)
+            $statusCode=404;
+        return response()->json($category,$statusCode);
     }
 
 
@@ -49,14 +57,26 @@ class CategoryController extends Controller
 
     public function update(Request $request,$id)
     {
-        $dataCategory = $this->categoryService->update($request->all(),$id);
-        return response()->json($dataCategory['categories'],$dataCategory['statusCode']);
+        $category = Category::findOrFail($id);
+        $statusCode=200;
+        if (!$category)
+            $statusCode=404;
+        $category->fill($request->all());
+        $category->save();
+        return response()->json($category,$statusCode);
     }
 
 
     public function destroy($id)
     {
-        $dataCategory = $this->categoryService->destroy($id);
-        return response()->json($dataCategory['message'],$dataCategory['statusCode']);
+        $category = Category::findOrFail($id);
+        $message = "User not found";
+        $statusCode = 404;
+        if ($category){
+            $category->delete();
+            $message="delete success";
+            $statusCode =200;
+        }
+        return response()->json($message,$statusCode);
     }
 }

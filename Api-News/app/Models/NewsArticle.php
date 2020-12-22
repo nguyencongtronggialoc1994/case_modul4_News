@@ -8,4 +8,11 @@ use Illuminate\Database\Eloquent\Model;
 class NewsArticle extends Model
 {
     use HasFactory;
+    protected $fillable=[
+        'id',
+        'title',
+        'text',
+        'publishDate',
+        'author',
+    ];
 }

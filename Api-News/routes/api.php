@@ -19,18 +19,20 @@ use Illuminate\Support\Facades\Route;
 Route::middleware('auth:api')->get('/user', function (Request $request) {
     return $request->user();
 });
-Route::prefix('newsArticle')->group(function (){
-    Route::get('/',[NewsArticleController::class,'index'])->name('newsArticle.index');
-    Route::get('/{id}',[NewsArticleController::class,'show'])->name('newsArticle.show');
-    Route::post('/',[NewsArticleController::class,'store'])->name('newsArticle.store');
-    Route::put('/{id}',[NewsArticleController::class,'update'])->name('newsArticle.update');
-    Route::delete('/{id}',[NewsArticleController::class,'destroy'])->name('newsArticle.destroy');
+Route::prefix('newsArticles')->group(function () {
+    Route::get('/', [NewsArticleController::class, 'index']);
+    Route::get('/{id}', [NewsArticleController::class, 'show']);
+    Route::post('/', [NewsArticleController::class, 'store']);
+    Route::put('/{id}', [NewsArticleController::class, 'update']);
+    Route::delete('/{id}', [NewsArticleController::class, 'destroy']);
 });
-Route::prefix('category')->group(function (){
-    Route::get('/',[CategoryController::class,'index'])->name('category.index');
-    Route::get('/{id}',[CategoryController::class,'show'])->name('category.show');
-    Route::post('/',[CategoryController::class,'store'])->name('category.store');
-    Route::put('/{id}',[CategoryController::class,'update'])->name('category.update');
-    Route::delete('/{id}',[CategoryController::class,'destroy'])->name('category.destroy');
+
+Route::prefix('categories')->group(function () {
+    Route::get('/', [CategoryController::class, 'index']);
+    Route::get('/{id}', [CategoryController::class, 'show']);
+    Route::post('/', [CategoryController::class, 'store']);
+    Route::put('/{id}', [CategoryController::class, 'update']);
+    Route::delete('/{id}', [CategoryController::class, 'destroy']);
+
 });
 
