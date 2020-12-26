@@ -12,7 +12,7 @@ class CategoryRepositoryImpl extends EloquentRepository implements CategoryRepos
 
     public function getModel()
     {
-        $model = CategoryRepository::class;
+        $model = Category::class;
         return $model;
     }
 }
