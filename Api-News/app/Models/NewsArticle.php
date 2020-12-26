@@ -12,6 +12,7 @@ class NewsArticle extends Model
         'id',
         'title',
         'text',
+        'category_id',
         'publishDate',
         'author',
     ];

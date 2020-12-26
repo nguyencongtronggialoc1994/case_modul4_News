@@ -17,6 +17,8 @@ class CreateNewsArticlesTable extends Migration
             $table->increments('id');
             $table->string('title');
             $table->string('text',15000);
+            $table->unsignedInteger('category_id');
+            $table->foreign('category_id')->references('id')->on('categories');
             $table->date('publishDate');
             $table->string('author');
             $table->timestamps();

@@ -3,8 +3,10 @@
 namespace App\Http\Controllers;
 
 use App\Http\Services\NewsArticleService;
+use App\Models\Category;
 use App\Models\NewsArticle;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
 
 class NewsArticleController extends Controller
 {
@@ -19,12 +21,6 @@ class NewsArticleController extends Controller
     {
         $newsArticles = $this->newsArticleService->getAll();
         return response()->json($newsArticles, 200);
-    }
-
-
-    public function create()
-    {
-
     }
 
 
@@ -44,23 +40,16 @@ class NewsArticleController extends Controller
         $newsArticle = NewsArticle::findOrFail($id);
         $statusCode = 200;
         if (!$newsArticle)
-            $statusCode=404;
-        return response()->json($newsArticle,$statusCode);
+            $statusCode = 404;
+        return response()->json($newsArticle, $statusCode);
     }
-
-
-    public function edit(NewsArticle $newsArticle)
-    {
-        //
-    }
-
 
     public function update(Request $request, $id)
     {
         $newsArticle = NewsArticle::findOrFail($id);
         $statusCode = 200;
         if (!$newsArticle)
-            $statusCode=404;
+            $statusCode = 404;
         $newsArticle->fill($request->all());
         $newsArticle->save();
         return response()->json($newsArticle, $statusCode);
@@ -72,11 +61,21 @@ class NewsArticleController extends Controller
         $newsArticle = NewsArticle::findOrFail($id);
         $statusCode = 404;
         $message = "User not found";
-        if ($newsArticle){
+        if ($newsArticle) {
             $newsArticle->delete();
-            $statusCode=200;
-            $message="Delete success!";
+            $statusCode = 200;
+            $message = "Delete success!";
         }
         return response()->json($message, $statusCode);
+    }
+
+    public function search($key)
+    {
+        $newsArticles = DB::table('news_articles')->where('title', 'LIKE', '%' . $key . '%')->get();
+        $statusCode = 200;
+        if (!$newsArticles) {
+            $statusCode = 404;
+        }
+        return response()->json($newsArticles, $statusCode);
     }
 }
