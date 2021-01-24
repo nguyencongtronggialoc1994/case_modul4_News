@@ -2,18 +2,9 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="bf72fbb3-b5d3-4cb2-9224-a8d120fbd2a1" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/Api-News/app/Http/Controllers/NewsArticleController.php" beforeDir="false" afterPath="$PROJECT_DIR$/Api-News/app/Http/Controllers/NewsArticleController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Api-News/app/Http/Kernel.php" beforeDir="false" afterPath="$PROJECT_DIR$/Api-News/app/Http/Kernel.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Api-News/app/Http/Repositories/Impl/CategoryRepositoryImpl.php" beforeDir="false" afterPath="$PROJECT_DIR$/Api-News/app/Http/Repositories/Impl/CategoryRepositoryImpl.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Api-News/app/Models/Category.php" beforeDir="false" afterPath="$PROJECT_DIR$/Api-News/app/Models/Category.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Api-News/app/Models/NewsArticle.php" beforeDir="false" afterPath="$PROJECT_DIR$/Api-News/app/Models/NewsArticle.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Api-News/app/Models/User.php" beforeDir="false" afterPath="$PROJECT_DIR$/Api-News/app/Models/User.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Api-News/composer.json" beforeDir="false" afterPath="$PROJECT_DIR$/Api-News/composer.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Api-News/composer.lock" beforeDir="false" afterPath="$PROJECT_DIR$/Api-News/composer.lock" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Api-News/config/app.php" beforeDir="false" afterPath="$PROJECT_DIR$/Api-News/config/app.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Api-News/database/migrations/2020_12_21_084840_create_news_articles_table.php" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Api-News/database/migrations/2020_12_21_085002_create_categories_table.php" beforeDir="false" afterPath="$PROJECT_DIR$/Api-News/database/migrations/2020_12_21_085002_create_categories_table.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Api-News/routes/api.php" beforeDir="false" afterPath="$PROJECT_DIR$/Api-News/routes/api.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/angular/src/app/newsArticle/news-article/news-article.component.html" beforeDir="false" afterPath="$PROJECT_DIR$/angular/src/app/newsArticle/news-article/news-article.component.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/angular/src/app/newsArticle/news-article/news-article.component.ts" beforeDir="false" afterPath="$PROJECT_DIR$/angular/src/app/newsArticle/news-article/news-article.component.ts" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -150,11 +141,16 @@
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/../laravel_lesson9/Restful_API" />
+    <property name="last_opened_file_path" value="$USER_HOME$/test_lesson4" />
     <property name="nodejs_package_manager_path" value="npm" />
     <property name="php.override.implement.member.chooser.php.doc" value="NONE" />
     <property name="ts.external.directory.path" value="$PROJECT_DIR$/angular/node_modules/typescript/lib" />
     <property name="vue.rearranger.settings.migration" value="true" />
+  </component>
+  <component name="RecentsManager">
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/database" />
+    </key>
   </component>
   <component name="RunManager">
     <configuration name="Api-News" type="PHPUnitRunConfigurationType" factoryName="PHPUnit" temporary="true">
@@ -188,7 +184,16 @@
       <workItem from="1608858175610" duration="1158000" />
       <workItem from="1608878380339" duration="5727000" />
       <workItem from="1608902774132" duration="10704000" />
-      <workItem from="1608941907177" duration="12210000" />
+      <workItem from="1608941907177" duration="13446000" />
+      <workItem from="1609036698747" duration="6060000" />
+      <workItem from="1609080584755" duration="54000" />
+      <workItem from="1609081097182" duration="2609000" />
+      <workItem from="1609144788697" duration="2459000" />
+      <workItem from="1609157785893" duration="2175000" />
+      <workItem from="1609222978806" duration="182000" />
+      <workItem from="1609223177142" duration="6000" />
+      <workItem from="1609223202188" duration="16000" />
+      <workItem from="1610357314844" duration="51000" />
     </task>
     <servers />
   </component>

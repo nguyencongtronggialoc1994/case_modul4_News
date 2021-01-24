@@ -13,6 +13,7 @@ import {NotificationService} from "../../service/notification.service";
 })
 export class NewsArticleComponent implements OnInit {
   newsArticles!: Observable<NewsArticle[]>;
+
   // token!: string;
 
   constructor(
@@ -25,32 +26,34 @@ export class NewsArticleComponent implements OnInit {
   ngOnInit(): void {
     this.reloadData();
   }
+
   reloadData() {
-    this.newsArticles = this.newsArticleService.getNewsArticleList();
-    console.log(this.newsArticles);
+    this.newsArticles =this.newsArticleService.getNewsArticleList()
   }
 
   showToasterError() {
-    this.notificationService.showError("Please login before accessing","Notification !");
+    this.notificationService.showError("Please login before accessing", "Notification !");
   }
+
   deleteNewsArticle(id: number) {
     if (localStorage.getItem('AccessToken')) {
       this.router.navigate(['delete', id]);
-    }else {
+    } else {
       this.showToasterError();
     }
   }
+
   newsArticleDetail(id: number) {
-    if (localStorage.getItem('AccessToken')){
+    if (localStorage.getItem('AccessToken')) {
       this.router.navigate(['newsArticleDetails', id])
-    }else {
+    } else {
       this.showToasterError();
 
     }
   }
 
   updateNewsArticle(id: number) {
-    if (localStorage.getItem('AccessToken')){
+    if (localStorage.getItem('AccessToken')) {
       this.router.navigate(['updateNewsArticle', id])
     } else {
       this.showToasterError();
