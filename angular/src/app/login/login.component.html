@@ -1,0 +1,23 @@
+<div class="container">
+  <div class="card">
+    <div class="card-header" style="background-color: #1717e2">
+      <h3 style="text-align: center">Login</h3>
+
+    </div>
+    <div class="card-body">
+        <form>
+          <div class="form-group">
+            <label for="email">Email</label>
+            <input type="email" class="form-control" id="email" required [(ngModel)]="email" name="email">
+          </div>
+          <div class="form-group">
+            <label for="password">Password</label>
+            <input type="password" class="form-control" id="password" required [(ngModel)]="password" name="password">
+          </div>
+          <div style="text-align: center;width: 100%">
+            <button type="submit" class="btn btn-success" (click)="login()">Login</button>
+          </div>
+        </form>
+    </div>
+  </div>
+</div>

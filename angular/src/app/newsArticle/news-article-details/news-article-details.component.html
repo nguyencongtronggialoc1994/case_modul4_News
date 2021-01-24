@@ -1,0 +1,27 @@
+<div class="container">
+  <h2>NewsArticle Details</h2>
+
+  <hr/>
+  <div *ngIf="newsArticle">
+    <div>
+      <label><b>Title: </b></label> {{newsArticle.title}}
+    </div>
+    <div>
+      <label><b>Text: </b></label> {{newsArticle.text}}
+    </div>
+    <div>
+<!--      <label><b>Category: </b></label> {{category.categoryName}}-->
+    </div>
+    <div>
+      <label><b>publish date: </b></label> {{newsArticle.publishDate}}
+    </div>
+    <div>
+      <label><b>Author: </b></label> {{newsArticle.author}}
+    </div>
+  </div>
+
+  <br>
+  <br>
+  <button (click)="list()" class="btn btn-primary">Back to NewsArticle List</button>
+  <br>
+</div>

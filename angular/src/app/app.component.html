@@ -1,0 +1,36 @@
+<div class="row">
+  <div class="col-2">
+    <div id="menu" style="text-align: center">
+      <a routerLink="login" class="nav-link" routerLinkActive="active" style=""><i class="bi bi-person-circle"></i>
+        <svg xmlns="http://www.w3.org/2000/svg" width="25" height="25" fill="currentColor" class="bi bi-person-circle"
+             viewBox="0 0 16 16">
+          <path
+            d="M13.468 12.37C12.758 11.226 11.195 10 8 10s-4.757 1.225-5.468 2.37A6.987 6.987 0 0 0 8 15a6.987 6.987 0 0 0 5.468-2.63z"/>
+          <path fill-rule="evenodd" d="M8 9a3 3 0 1 0 0-6 3 3 0 0 0 0 6z"/>
+          <path fill-rule="evenodd" d="M8 1a7 7 0 1 0 0 14A7 7 0 0 0 8 1zM0 8a8 8 0 1 1 16 0A8 8 0 0 1 0 8z"/>
+        </svg>
+      </a>
+      <button class="btn btn-primary" style="height: 50px" (click)="logout()">logout</button>
+      <ul>
+        <li routerLink="newsArticle" style="border-top: 1px solid white">NewsArticle List</li>
+        <li (click)="goToAddNewsArticle()">Add NewsArticle</li>
+        <li (click)="goToCategoryList()">Category List</li>
+        <li (click)="goToAddCategory()">Add category</li>
+
+      </ul>
+    </div>
+  </div>
+  <div class="col-10">
+    <div class="card">
+      <h2
+        style="background-color: #0b2e13;color: white;text-shadow: 2px 2px 2px yellow;text-align: center">
+        NEWS MANAGER</h2>
+      <div class="card-body">
+        <router-outlet></router-outlet>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+
